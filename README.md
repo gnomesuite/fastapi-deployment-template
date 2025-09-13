@@ -1,42 +1,17 @@
-# FastAPI Deployment Template
 
-A production-ready FastAPI template with comprehensive deployment configurations, testing setup, and best practices.
+## 🛠️ Local Development
 
-## 🚀 Features
+### Prerequisites
 
-- **FastAPI Application**: Modern, fast web framework for building APIs
-- **Pydantic Models**: Type-safe data validation and serialization
-- **Configuration Management**: Environment-based settings with Pydantic Settings
-- **Testing Framework**: Comprehensive test suite with pytest
-- **CORS Support**: Cross-origin resource sharing configuration
-- **Health Checks**: Built-in health monitoring endpoints
-- **Documentation**: Auto-generated API documentation with Swagger UI
-- **Production Ready**: Optimized for deployment with proper error handling
+- Python 3.11+
+- pip or poetry
+- Git
 
-## 📁 Project Structure
-
-```
-fastapi-deployment-template/
-├── app/
-│   ├── __init__.py
-│   ├── main.py                 # FastAPI app entry point
-│   ├── config.py              # Configuration management
-│   ├── models.py              # Data models
-│   └── schemas.py             # Pydantic schemas
-├── tests/
-│   ├── __init__.py
-│   └── test_main.py           # Test cases
-├── requirements.txt           # Python dependencies
-├── env.example               # Environment variables template
-├── .gitignore               # Git ignore rules
-└── README.md                # This file
-```
-
-## 🛠️ Installation
+### Quick Start
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/gnomesuite/fastapi-deployment-template.git
    cd fastapi-deployment-template
    ```
 
@@ -58,72 +33,112 @@ fastapi-deployment-template/
 
 4. **Set up environment variables**
    ```bash
-   cp env.example .env
+   cp .env.example .env
    # Edit .env with your configuration
    ```
 
-## 🚀 Running the Application
+5. **Run locally**
+   ```bash
+   uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+   ```
 
-### Development Mode
-```bash
-python -m app.main
-```
-
-### Using Uvicorn directly
-```bash
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-```
-
-### Production Mode
-```bash
-uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4
-```
-
-## 📚 API Documentation
-
-Once the application is running, you can access:
-
-- **Swagger UI**: http://localhost:8000/docs
-- **ReDoc**: http://localhost:8000/redoc
-- **OpenAPI JSON**: http://localhost:8000/openapi.json
+6. **Access the API**
+   - API: http://localhost:8000
+   - Swagger UI: http://localhost:8000/docs
+   - ReDoc: http://localhost:8000/redoc
 
 ## 🧪 Testing
 
-Run the test suite:
+### Run Tests
+
 ```bash
+# Run all tests
 pytest
-```
 
-Run tests with coverage:
-```bash
-pytest --cov=app
-```
+# Run with coverage
+pytest --cov=app --cov-report=html
 
-Run specific test file:
-```bash
+# Run specific test file
 pytest tests/test_main.py
+
+# Run with verbose output
+pytest -v
 ```
+
+### Test Coverage
+
+The template includes comprehensive test coverage:
+- Unit tests for all endpoints
+- Integration tests for API flows
+- Error handling tests
+- Validation tests
+
+## 🧙‍♂️ Gnome Suite Deployment
+
+### Deploy via Gnome Suite Dashboard
+
+1. **Connect GitHub Repository**
+   - Go to your [Gnome Suite dashboard](https://dashboard.gnomesuite.com)
+   - Click "New Project"
+   - Connect your GitHub repository
+   - Select this FastAPI template
+
+2. **Automatic Deployment**
+   - Gnome Suite will automatically:
+     - 🐳 Build your Docker container
+     - ☁️ Deploy to GCP Cloud Run
+     - �� Configure Apigee API Gateway
+     - 📊 Set up monitoring and logging
+     - ��️ Apply security policies
+     - �� Configure auto-scaling
+
+3. **Access Your API**
+   - Your API will be available at: `https://your-api.gnomesuite.com`
+   - Swagger documentation: `https://your-api.gnomesuite.com/docs`
+   - Monitoring dashboard in Gnome Suite
+
+### What Gnome Suite Handles for You
+
+- 🔐 **Authentication**: Apigee handles JWT validation, OAuth, API keys
+- ⚡ **Rate Limiting**: Automatic rate limiting policies
+- 🛡️ **Security**: DDoS protection, CORS, input validation
+- 📊 **Monitoring**: Real-time metrics, logs, and alerts
+- 📈 **Scaling**: Auto-scaling based on traffic patterns
+- 🔒 **SSL/TLS**: Automatic certificate management
+- 💾 **Backup & Recovery**: Automated backup strategies
+- ⚖️ **Load Balancing**: Intelligent traffic distribution
 
 ## 📋 API Endpoints
 
-### Health & Status
-- `GET /` - Root endpoint with basic info
-- `GET /health` - Health check for monitoring
+### 🐕 Pet Management
+- `GET /pets` - 📋 Get all pets (with filtering)
+- `GET /pets/{pet_id}` - �� Get specific pet
+- `POST /pets` - ➕ Create new pet
+- `PUT /pets/{pet_id}` - ✏️ Update pet
+- `DELETE /pets/{pet_id}` - 🗑️ Delete pet
 
-### Items Management
-- `GET /items` - Get all items
-- `GET /items/{item_id}` - Get specific item
-- `POST /items` - Create new item
-- `PUT /items/{item_id}` - Update item
-- `DELETE /items/{item_id}` - Delete item
+### 📦 Order Management
+- `GET /orders` - 📋 Get all orders
+- `GET /orders/{order_id}` - �� Get specific order
+- `POST /orders` - ➕ Create new order
+- `DELETE /orders/{order_id}` - 🗑️ Delete order
+
+### 👥 User Management
+- `GET /users` - 📋 Get all users
+- `GET /users/{user_id}` - 🔍 Get specific user
+- `POST /users` - ➕ Create new user
+- `DELETE /users/{user_id}` - 🗑️ Delete user
+
+### 📊 Inventory
+- `GET /inventory` - 📈 Get pet inventory by status
 
 ## 🔧 Configuration
 
-The application uses environment variables for configuration. Copy `env.example` to `.env` and modify as needed:
+The application uses environment variables for configuration:
 
 ```env
 # Application Configuration
-APP_NAME=FastAPI Deployment Template
+APP_NAME=Pet Store API
 DEBUG=false
 HOST=0.0.0.0
 PORT=8000
@@ -137,83 +152,46 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 ALLOWED_ORIGINS=["http://localhost:3000", "https://yourdomain.com"]
 ```
 
-## 🚀 Deployment
+## 🐳 Docker Support
 
-### Docker Deployment
+The template includes a production-ready Dockerfile:
 
-1. **Create Dockerfile**
-   ```dockerfile
-   FROM python:3.11-slim
-   
-   WORKDIR /app
-   
-   COPY requirements.txt .
-   RUN pip install --no-cache-dir -r requirements.txt
-   
-   COPY . .
-   
-   EXPOSE 8000
-   
-   CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
-   ```
+```dockerfile
+FROM python:3.11-slim
 
-2. **Build and run**
-   ```bash
-   docker build -t fastapi-template .
-   docker run -p 8000:8000 fastapi-template
-   ```
+WORKDIR /app
 
-### Docker Compose
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
 
-Create `docker-compose.yml`:
-```yaml
-version: '3.8'
-services:
-  app:
-    build: .
-    ports:
-      - "8000:8000"
-    environment:
-      - DEBUG=false
-      - ENVIRONMENT=production
-    volumes:
-      - .:/app
+# Copy requirements and install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code
+COPY . .
+
+# Expose port
+EXPOSE 8000
+
+# Run the application
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 
-### Cloud Deployment
+### Build and Run with Docker
 
-#### Heroku
-1. Create `Procfile`:
-   ```
-   web: uvicorn app.main:app --host 0.0.0.0 --port $PORT
-   ```
+```bash
+# Build the image
+docker build -t pet-store-api .
 
-2. Deploy:
-   ```bash
-   git push heroku main
-   ```
+# Run the container
+docker run -p 8000:8000 pet-store-api
 
-#### AWS/GCP/Azure
-- Use container services (ECS, Cloud Run, Container Instances)
-- Configure load balancers and auto-scaling
-- Set up monitoring and logging
-
-## 🔒 Security Considerations
-
-- Change the `SECRET_KEY` in production
-- Configure proper CORS origins
-- Use HTTPS in production
-- Implement authentication/authorization as needed
-- Validate and sanitize all inputs
-- Use environment variables for sensitive data
-
-## 📊 Monitoring
-
-The application includes:
-- Health check endpoint (`/health`)
-- Structured logging support
-- Error handling with proper HTTP status codes
-- Request/response validation
+# Run with environment variables
+docker run -p 8000:8000 -e DEBUG=false pet-store-api
+```
 
 ## 🤝 Contributing
 
@@ -224,22 +202,20 @@ The application includes:
 5. Run the test suite
 6. Submit a pull request
 
-## 📝 License
+## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🆘 Support
 
 For questions and support:
-- Create an issue in the repository
-- Check the FastAPI documentation: https://fastapi.tiangolo.com/
-- Review the test cases for usage examples
+- **Gnome Suite Documentation**: [https://docs.gnomesuite.com](https://docs.gnomesuite.com)
+- **Community Forum**: [https://community.gnomesuite.com](https://community.gnomesuite.com)
+- **FastAPI Documentation**: [https://fastapi.tiangolo.com/](https://fastapi.tiangolo.com/)
+- **GitHub Issues**: [https://github.com/gnomesuite/fastapi-deployment-template/issues](https://github.com/gnomesuite/fastapi-deployment-template/issues)
 
-## 🔄 Updates
+---
 
-To update dependencies:
-```bash
-pip install --upgrade -r requirements.txt
-```
+**Start building your Pet Store API today with Gnome Suite!** ��
 
-Remember to test thoroughly after updates and update your deployment accordingly.
+[![Deploy with Gnome Suite](https://img.shields.io/badge/Deploy%20with-Gnome%20Suite-00D4AA?style=for-the-badge&logo=gnome&logoColor=white)](https://gnomesuite.com/deploy)
