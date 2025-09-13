@@ -1,3 +1,34 @@
+# Pet Store API - FastAPI Deployment Template
+
+A production-ready FastAPI Pet Store API template with comprehensive deployment configurations, testing setup, and Gnome Suite integration.
+
+## 🚀 Features
+
+- **Pet Store API**: Complete CRUD operations for pets, orders, and users
+- **FastAPI Framework**: Modern, fast web framework for building APIs
+- **Pydantic Models**: Type-safe data validation and serialization
+- **OpenAPI Documentation**: Auto-generated Swagger UI and ReDoc
+- **Comprehensive Testing**: Full test suite with pytest
+- **Gnome Suite Ready**: Optimized for Gnome Suite deployment platform
+- **Production Ready**: Proper error handling, validation, and monitoring
+
+## 📁 Project Structure
+
+```
+fastapi-deployment-template/
+├── app/
+│   ├── __init__.py
+│   ├── main.py                 # FastAPI app entry point
+│   ├── models.py              # Pet Store data models
+│   └── schemas.py             # Pydantic schemas
+├── tests/
+│   ├── __init__.py
+│   └── test_main.py           # Test cases
+├── requirements.txt           # Python dependencies
+├── .gitignore               # Git ignore rules
+├── run.py                   # Simple startup script
+└── README.md                # This file
+```
 
 ## 🛠️ Local Development
 
@@ -31,18 +62,12 @@
    pip install -r requirements.txt
    ```
 
-4. **Set up environment variables**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your configuration
-   ```
-
-5. **Run locally**
+4. **Run locally**
    ```bash
    uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
    ```
 
-6. **Access the API**
+5. **Access the API**
    - API: http://localhost:8000
    - Swagger UI: http://localhost:8000/docs
    - ReDoc: http://localhost:8000/redoc
@@ -87,10 +112,10 @@ The template includes comprehensive test coverage:
    - Gnome Suite will automatically:
      - 🐳 Build your Docker container
      - ☁️ Deploy to GCP Cloud Run
-     - �� Configure Apigee API Gateway
+     - 🔐 Configure Apigee API Gateway
      - 📊 Set up monitoring and logging
-     - ��️ Apply security policies
-     - �� Configure auto-scaling
+     - 🛡️ Apply security policies
+     - 📈 Configure auto-scaling
 
 3. **Access Your API**
    - Your API will be available at: `https://your-api.gnomesuite.com`
@@ -112,14 +137,14 @@ The template includes comprehensive test coverage:
 
 ### 🐕 Pet Management
 - `GET /pets` - 📋 Get all pets (with filtering)
-- `GET /pets/{pet_id}` - �� Get specific pet
+- `GET /pets/{pet_id}` - 🔍 Get specific pet
 - `POST /pets` - ➕ Create new pet
 - `PUT /pets/{pet_id}` - ✏️ Update pet
 - `DELETE /pets/{pet_id}` - 🗑️ Delete pet
 
 ### 📦 Order Management
 - `GET /orders` - 📋 Get all orders
-- `GET /orders/{order_id}` - �� Get specific order
+- `GET /orders/{order_id}` - 🔍 Get specific order
 - `POST /orders` - ➕ Create new order
 - `DELETE /orders/{order_id}` - 🗑️ Delete order
 
@@ -131,26 +156,6 @@ The template includes comprehensive test coverage:
 
 ### 📊 Inventory
 - `GET /inventory` - 📈 Get pet inventory by status
-
-## 🔧 Configuration
-
-The application uses environment variables for configuration:
-
-```env
-# Application Configuration
-APP_NAME=Pet Store API
-DEBUG=false
-HOST=0.0.0.0
-PORT=8000
-ENVIRONMENT=production
-
-# Security
-SECRET_KEY=your-super-secret-key-change-this-in-production
-ACCESS_TOKEN_EXPIRE_MINUTES=30
-
-# CORS Configuration
-ALLOWED_ORIGINS=["http://localhost:3000", "https://yourdomain.com"]
-```
 
 ## 🐳 Docker Support
 
@@ -216,6 +221,6 @@ For questions and support:
 
 ---
 
-**Start building your Pet Store API today with Gnome Suite!** ��
+**Start building your Pet Store API today with Gnome Suite!** 🚀
 
 [![Deploy with Gnome Suite](https://img.shields.io/badge/Deploy%20with-Gnome%20Suite-00D4AA?style=for-the-badge&logo=gnome&logoColor=white)](https://gnomesuite.com/deploy)

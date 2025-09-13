@@ -8,7 +8,6 @@ import uvicorn
 from typing import List, Optional
 from datetime import datetime
 
-from .config import get_settings
 from .models import Pet, PetCreate, PetUpdate, Order, OrderCreate, User, UserCreate, PetStatus, OrderStatus, PetCategory
 from .schemas import PetResponse, OrderResponse, UserResponse, HealthResponse, ApiResponse, ErrorResponse
 
@@ -334,10 +333,9 @@ async def get_inventory():
     return inventory
 
 if __name__ == "__main__":
-    settings = get_settings()
     uvicorn.run(
         "app.main:app",
-        host=settings.host,
-        port=settings.port,
-        reload=settings.debug
+        host="0.0.0.0",
+        port=8000,
+        reload=False
     )
