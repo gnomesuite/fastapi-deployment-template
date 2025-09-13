@@ -1,4 +1,4 @@
-# Pet Store API - FastAPI Deployment Template
+# Gnome Suite FastAPI Deployment Template
 
 A production-ready FastAPI Pet Store API template with comprehensive deployment configurations, testing setup, and Gnome Suite integration.
 
@@ -11,6 +11,38 @@ A production-ready FastAPI Pet Store API template with comprehensive deployment 
 - **Comprehensive Testing**: Full test suite with pytest
 - **Gnome Suite Ready**: Optimized for Gnome Suite deployment platform
 - **Production Ready**: Proper error handling, validation, and monitoring
+- **Blank API Generator**: Create a minimal FastAPI template from scratch
+
+## 🛠️ Quick Start Options
+
+### Option 1: Use the Pet Store Template
+Clone this repository to get a complete Pet Store API with all features.
+
+### Option 2: Create a Blank API
+Generate a minimal FastAPI template to start from scratch:
+
+```bash
+# Run the blank API generator
+python create_blank_api.py my-new-api
+
+# Navigate to your new API
+cd my-new-api
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the API
+python run.py
+```
+
+The blank API generator creates:
+- ✅ Minimal FastAPI application
+- ✅ Basic health endpoints
+- ✅ Example models and schemas
+- ✅ Test structure
+- ✅ Requirements file
+- ✅ Run script
+- ✅ Git configuration
 
 ## 📁 Project Structure
 
@@ -27,6 +59,7 @@ fastapi-deployment-template/
 ├── requirements.txt           # Python dependencies
 ├── .gitignore               # Git ignore rules
 ├── run.py                   # Simple startup script
+├── create_blank_api.py      # Blank API generator script
 └── README.md                # This file
 ```
 
